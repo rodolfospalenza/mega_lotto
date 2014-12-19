@@ -1,7 +1,13 @@
 module MegaLotto
   class Drawing
+    attr_accessor :config
+
+    def initialize(config = MegaLotto.configuration)
+      @config = config
+    end
+
     def draw
-      5.times.map { single_draw }
+      @config.drawing_count.times.map { single_draw }
     end
 
     private
